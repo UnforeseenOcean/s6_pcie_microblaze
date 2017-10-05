@@ -8,7 +8,7 @@
 
   * s6_pcie_microblaze.xise -- Xilinx ISE project file. 
 
-  * microblaze/pcores/axis_pcie_v1_00_a -- Custom peripheral module which allows to connect PCI Express integrated block of Spartan-6 FPGA to AXI Stream port of MicroBlaze soft processor core.  
+  * microblaze/pcores/axis_pcie_v1_00_a -- Custom peripheral module which allows to connect PCI Express integrated block of Spartan-6 FPGA as raw TLP stream to MicroBlaze soft processor core. 
 
   * sdk/srec_bootloader_0 -- Simple bootloader for MicroBlaze soft processor, it using SREC image format and onboard linear flash memory of SP605 to load and store main MicroBlaze program. 
 
@@ -189,6 +189,23 @@ Dumping target computer physical memory at zero address from control computer:
   00000060: 00 e0 00 f0 f2 e6 00 f0 6e fe 00 f0 53 ff 00 f0 | ........n...S...
   00000070: 53 ff 00 f0 a4 f0 00 f0 c7 ef 00 f0 b1 99 00 c0 | S...............
 
+
+  Building project from the source code
+-----------------------------------------
+
+  1) Install Xilinx ISE 13.4 which comes with your SP605 board and open s6_pcie_microblaze.xise project file.
+
+  2) Regenerate s6_pcie_v2_4 and fifo_generator_v8_4 cores which presents in project hierarchy. 
+
+  3) Click on microblaze_i instance in project hierarchy and run "Export Hardware Design to SDK" with Bitstream.
+
+  4) When build will be completed ISE opens Xilinx Software Development Kit IDE, use sdk forlder as it's workspace. 
+
+  5) Create new standalone board support package in your Xilinx SDK project tree, choose lwIP and xilflash libraries in BSP configuration. 
+
+  6) Import sdk/srec_bootloader_0 and sdk/main_0 projects into the project tree and run the build.
+
+  7) Run make_out.sh (or make_out.bat) shell script from Xilinx ISE command prompt to generate needed output files. 
 
 
 *****************************************************************
