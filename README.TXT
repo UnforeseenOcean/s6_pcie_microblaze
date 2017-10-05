@@ -199,7 +199,7 @@ Dumping target computer physical memory at zero address from control computer:
 
   3) Click on microblaze_i instance in project hierarchy and run "Export Hardware Design to SDK" with Bitstream.
 
-  4) When build will be completed ISE opens Xilinx Software Development Kit IDE, use sdk forlder as it's workspace. 
+  4) When build will be completed ISE opens Xilinx Software Development Kit IDE, use sdk folder as it's workspace. 
 
   5) Create new standalone board support package in your Xilinx SDK project tree, choose lwIP and xilflash libraries in BSP configuration. 
 

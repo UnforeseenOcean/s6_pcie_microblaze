@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import sys, os
 
 FLASH_SIZE = 8 * 1024 * 1024
