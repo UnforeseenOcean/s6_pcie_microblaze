@@ -5,8 +5,7 @@ from struct import pack, unpack
 from threading import Thread
 from multiprocessing.dummy import Pool as ThreadPool
 
-# board IP address and port
-PCIE_TO_TCP_ADDR = ( '192.168.2.247', 28472 )
+from pcie_lib_config import Conf
 
 
 PAGE_SIZE = 0x1000
@@ -126,13 +125,15 @@ class Socket(object):
 
     def close(self):
 
-        assert self.sock is not None
+        if self.sock is not None:
 
-        self.sock.close()
-        self.sock = None
+            self.sock.close()
+            self.sock = None
 
 
 class LinkLayer(Socket):
+
+    env_target_addr = 'TARGET_ADDR'
 
     F_HAS_DATA     = 0x01
     F_RECV_REPLY   = 0x02
@@ -151,11 +152,20 @@ class LinkLayer(Socket):
 
         self.bus_id, self.verbose = bus_id, verbose        
 
-        super(LinkLayer, self).__init__(addr = PCIE_TO_TCP_ADDR if addr is None else addr)
+        if addr is None:
+
+            try:
+
+                host, port = os.getenv(self.env_target_addr).strip().split(':')
+                addr = (host, int(port))
+
+            except: pass
+
+        super(LinkLayer, self).__init__(addr = Conf.PCIE_TO_TCP_ADDR if addr is None else addr)
 
         if self.bus_id is None:
 
-            bus_id = self._get_bus_id()
+            bus_id = self.get_bus_id()
             if bus_id == 0:
 
                 raise(self.ErrorNotReady('PCI-E endpoint is not configured by root complex yet'))
@@ -170,7 +180,7 @@ class LinkLayer(Socket):
 
         super(LinkLayer, self).write(pack('=BI', *args))
 
-    def _get_bus_id(self):
+    def get_bus_id(self):
 
         return self.status_bus_id(self._get_status())
 
@@ -260,7 +270,7 @@ class TransactionLayer(LinkLayer):
     # Maximum bytes of data per each MWr and MRd TLP
     #
     MEM_WR_TLP_LEN = 4
-    MEM_RD_TLP_LEN = 0x800
+    MEM_RD_TLP_LEN = 0x80
 
     # align all memory reads and writes by 4 byte boundary
     MEM_ALIGN = 4
