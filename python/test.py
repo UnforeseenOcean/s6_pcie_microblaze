@@ -3,7 +3,7 @@ import sys, os
 from pcie_lib import *
 
 # open PCI-E device
-dev = TransactionLayer()
+dev = TransactionLayer(addr = ('192.168.2.247', 28472))
 
 # write bytes to memory
 dev.mem_write(0x1000, '\xAA' * 0x10)
