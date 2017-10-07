@@ -588,7 +588,7 @@ PCI Express is very complicated high speed bus so there's a lot of things that c
 
 5) Create new standalone board support package in your Xilinx SDK project tree, choose lwIP and xilflash libraries in BSP configuration. 
 
-6) Import `sdk/srec_bootloader_0` and `sdk/main_0 projects` into the project tree and run the build.
+6) Import `sdk/srec_bootloader_0` and `sdk/main_0/projects` into the project tree and run the build.
 
 7) Run `make_out.sh` (or `make_out.bat`) shell script from Xilinx ISE command prompt to generate needed output files. 
 
