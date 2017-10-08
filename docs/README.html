@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8" />
   <title>PCI Express DIY hacking toolkit</title>
-  <link rel="stylesheet" href="/__/grip/static/octicons/octicons.css" />
   <style>
     /*!
  * GitHub Light v0.4.1
@@ -123,7 +122,7 @@
 <p>Now you have to write FPGA bitstream into the SPI flash. Use <code>s6_pcie_microblaze.mcs</code> file if you want to do it over JTAG with the help of Xilinx iMPACT utility (see <a href="https://www.xilinx.com/support/documentation/boards_and_kits/sp605_PCIe_Gen1_x1_pdf_xtp065_13.4.pdf">this tutorial</a>), or <code>s6_pcie_microblaze.bin</code> if you're going to use <a href="https://www.flashrom.org/Supported_programmers">external SPI programmer</a> connected to <code>J17</code> header of SP605 (which is the most faster and convenient way).</p>
 </li>
 </ol>
-<p>In case of flashrom compatible external SPI programmer you can use <code>flash_to_spi.py</code> program as a <a href="https://www.flashrom.org/">flashrom</a> wrapper:</p>
+<p>In case of <a href="https://www.flashrom.org/">flashrom</a> compatible external SPI programmer you can use <code>flash_to_spi.py</code> program as a flashrom wrapper:</p>
 <pre><code># ./flash_to_spi.py s6_pcie_microblaze.bin
 Using region: "main".
 Calibrating delay loop... OK.
@@ -187,7 +186,7 @@ Loading settings from flash...
 auto-negotiated link speed: 100
 start_application(): TCP server is started at port 28472
 </code></pre>
-<p>Main program prints it's error messages into the onboard UART, you can use <code>--console</code> option of bootloaderctl.py to monitor those messages in real time.</p>
+<p>Main program prints it's error messages into the onboard UART, you can use <code>--console</code> option of <code>bootloaderctl.py</code> to monitor those messages in real time.</p>
 <ol start="7">
 <li>
 <p>Connect SP605 to the PCI-E slot of the target computer and turn the computer on. When PCI-E link was sucessfully established SP605 will fire <code>DS3</code> and <code>DS4</code> LEDs.</p>
@@ -611,10 +610,10 @@ EPT PDPTE 0x145f9000[0x0]: 0x14612007
 <p>Regenerate <code>s6_pcie_v2_4</code> and <code>fifo_generator_v8_4</code> cores which presents in project hierarchy.</p>
 </li>
 <li>
-<p>Click on <code>microblaze_i</code> instance in project hierarchy and run "Export Hardware Design to SDK" with Bitstream.</p>
+<p>Click on <code>microblaze_i</code> instance in project hierarchy and run "Export Hardware Design to SDK With Bitstream".</p>
 </li>
 <li>
-<p>When build will be completed ISE opens Xilinx Software Development Kit IDE, use sdk folder as it's workspace.</p>
+<p>When build will be completed ISE opens Xilinx Software Development Kit IDE, use <code>sdk</code> folder as it's workspace.</p>
 </li>
 <li>
 <p>Create new standalone board support package in your Xilinx SDK project tree, choose lwIP and xilflash libraries in BSP configuration.</p>

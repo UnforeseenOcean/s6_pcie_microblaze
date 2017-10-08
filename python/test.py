@@ -5,6 +5,7 @@ from pcie_lib import *
 # open PCI-E device
 dev = TransactionLayer(addr = ('192.168.2.247', 28472))
 
+
 # write bytes to memory
 dev.mem_write(0x1000, '\xAA' * 0x10)
 
@@ -14,6 +15,7 @@ dev.mem_write_4(0x1000, 0)
 dev.mem_write_2(0x1000, 0)
 dev.mem_write_1(0x1000, 0)
 
+
 # read bytes from memory
 print(repr(dev.mem_read(0x1000, 0x10)))
 
@@ -22,6 +24,7 @@ print('%.16x' % dev.mem_read_8(0x1000))
 print('%.8x' % dev.mem_read_4(0x1000))
 print('%.4x' % dev.mem_read_2(0x1000))
 print('%.2x' % dev.mem_read_1(0x1000))
+
 
 # get bus:device.function address of our PCI-E endpoint
 bus_id = dev.get_bus_id()

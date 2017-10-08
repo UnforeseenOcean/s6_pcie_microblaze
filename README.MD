@@ -43,7 +43,7 @@ Xilinx UG526 document also known as [SP605 Hardware User Guide](https://www.xili
 
 2) Now you have to write FPGA bitstream into the SPI flash. Use `s6_pcie_microblaze.mcs` file if you want to do it over JTAG with the help of Xilinx iMPACT utility (see [this tutorial](https://www.xilinx.com/support/documentation/boards_and_kits/sp605_PCIe_Gen1_x1_pdf_xtp065_13.4.pdf)), or `s6_pcie_microblaze.bin` if you're going to use [external SPI programmer](https://www.flashrom.org/Supported_programmers) connected to `J17` header of SP605 (which is the most faster and convenient way). 
 
-In case of flashrom compatible external SPI programmer you can use `flash_to_spi.py` program as a [flashrom](https://www.flashrom.org/) wrapper:
+In case of [flashrom](https://www.flashrom.org/) compatible external SPI programmer you can use `flash_to_spi.py` program as a flashrom wrapper:
 
 ```
 # ./flash_to_spi.py s6_pcie_microblaze.bin
@@ -113,7 +113,7 @@ auto-negotiated link speed: 100
 start_application(): TCP server is started at port 28472
 ```
 
-Main program prints it's error messages into the onboard UART, you can use `--console` option of bootloaderctl.py to monitor those messages in real time. 
+Main program prints it's error messages into the onboard UART, you can use `--console` option of `bootloaderctl.py` to monitor those messages in real time. 
 
 7) Connect SP605 to the PCI-E slot of the target computer and turn the computer on. When PCI-E link was sucessfully established SP605 will fire `DS3` and `DS4` LEDs.
 
@@ -582,9 +582,9 @@ PCI Express is very complicated high speed bus so there's a lot of things that c
 
 2) Regenerate `s6_pcie_v2_4` and `fifo_generator_v8_4` cores which presents in project hierarchy. 
 
-3) Click on `microblaze_i` instance in project hierarchy and run "Export Hardware Design to SDK" with Bitstream.
+3) Click on `microblaze_i` instance in project hierarchy and run "Export Hardware Design to SDK With Bitstream".
 
-4) When build will be completed ISE opens Xilinx Software Development Kit IDE, use sdk folder as it's workspace. 
+4) When build will be completed ISE opens Xilinx Software Development Kit IDE, use `sdk` folder as it's workspace. 
 
 5) Create new standalone board support package in your Xilinx SDK project tree, choose lwIP and xilflash libraries in BSP configuration. 
 
