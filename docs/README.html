@@ -63,7 +63,7 @@
               
                 <h3>
                   <span class="octicon octicon-book"></span>
-                  README
+                  README.md
                 </h3>
               
               <article class="markdown-body entry-content" itemprop="text" id="grip-content">
@@ -112,7 +112,7 @@
 <p>Ready to use FPGA bitstream files <code>s6_pcie_microblaze.mcs</code> and  <code>s6_pcie_microblaze.bin</code> can be downloaded <a href="https://mega.nz/#!rccnTTTI!s8RSL8y1KyMjL0arGNUNxWio-lesgPPHueOLeaKKluY">here</a>.</p>
 <h2>
 <a id="user-content-sp605-board-configuration" class="anchor" href="#sp605-board-configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SP605 board configuration</h2>
-<p><a href="images/board.jpg" target="_blank"><img src="images/board.jpg" width="800" height="415" style="max-width:100%;"></a></p>
+<p><a href="https://raw.githubusercontent.com/Cr4sh/s6_pcie_microblaze/master/docs/images/board.jpg" target="_blank"><img src="https://raw.githubusercontent.com/Cr4sh/s6_pcie_microblaze/master/docs/images/board.jpg" width="800" height="415" style="max-width:100%;"></a></p>
 <p>Xilinx UG526 document also known as <a href="https://www.xilinx.com/support/documentation/boards_and_kits/ug526.pdf">SP605 Hardware User Guide</a> is your best friend if you want to know more details about usage and configuration of this nice board.</p>
 <ol>
 <li>
@@ -388,7 +388,7 @@ dev.mem_write_1(<span class="pl-c1"><span class="pl-k">0x</span>1000</span>, <sp
 <li>Power on the target computer, in case of successful attack in couple of seconds you will see debug messages screen of injected UEFI driver.</li>
 </ol>
 <p>Example of debug messages on attack target screen:</p>
-<p><a href="images/backdoor_simple.png" target="_blank"><img src="images/backdoor_simple.png" width="499" height="371" style="max-width:100%;"></a></p>
+<p><a href="https://raw.githubusercontent.com/Cr4sh/s6_pcie_microblaze/master/docs/images/backdoor_simple.png" target="_blank"><img src="https://raw.githubusercontent.com/Cr4sh/s6_pcie_microblaze/master/docs/images/backdoor_simple.png" width="499" height="371" style="max-width:100%;"></a></p>
 <p>Example of <code>uefi_backdoor_simple.py</code> console output:</p>
 <pre><code>[!] Bad MRd TLP completion received
 [!] Bad MRd TLP completion received
@@ -434,7 +434,7 @@ Hooking LocateProtocol(): 0x83209b88 -&gt; 0x00010a30
 [+] DONE
 </code></pre>
 <p>Example of Hyper-V debug messages on attack target screen during platform init:</p>
-<p><a href="images/backdoor_hv.jpg" target="_blank"><img src="images/backdoor_hv.jpg" width="640" height="362" style="max-width:100%;"></a></p>
+<p><a href="https://raw.githubusercontent.com/Cr4sh/s6_pcie_microblaze/master/docs/images/backdoor_hv.jpg" target="_blank"><img src="https://raw.githubusercontent.com/Cr4sh/s6_pcie_microblaze/master/docs/images/backdoor_hv.jpg" width="640" height="362" style="max-width:100%;"></a></p>
 <p>Client program <code>payloads/DmaBackdoorHv/backdoor_client.exe</code> is used to interact with the Hyper-V backdoor from the guest partition. Check if backdoor is loaded:</p>
 <pre><code>&gt; backdoor_client.exe 0
 [+] Running on CPU #0
@@ -582,7 +582,7 @@ EPT PDPTE 0x145f9000[0x0]: 0x14612007
 0xfffff8017d1d5000 -&gt; 0x00000000033d5000
 </code></pre>
 <p>Also, <code>backdoor_client.exe</code> can inject dummy driver located in <code>payloads/DmaBackdoorHv/backdoor_driver.sys</code> from guest Hyper-V partition to host Hyper-V partition:</p>
-<p><a href="images/backdoor_vm_inject.png" target="_blank"><img src="images/backdoor_vm_inject.png" width="749" height="498" style="max-width:100%;"></a></p>
+<p><a href="https://raw.githubusercontent.com/Cr4sh/s6_pcie_microblaze/master/docs/images/backdoor_vm_inject.png" target="_blank"><img src="https://raw.githubusercontent.com/Cr4sh/s6_pcie_microblaze/master/docs/images/backdoor_vm_inject.png" width="749" height="498" style="max-width:100%;"></a></p>
 <h2>
 <a id="user-content-troubleshooting" class="anchor" href="#troubleshooting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Troubleshooting</h2>
 <p>PCI Express is very complicated high speed bus so there's a lot of things that can go wrong. If DMA attack is not working on your setup you might check the following things to determine the exact problem:</p>
@@ -629,7 +629,7 @@ EPT PDPTE 0x145f9000[0x0]: 0x14612007
 <a id="user-content-todo" class="anchor" href="#todo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TODO</h2>
 <ul>
 <li>
-<p>Implement SP605 MicroBlaze based design support for <a href="https://github.com/ufrisk/pcileech">pcileech</a>.</p>
+<p><a href="https://github.com/ufrisk/pcileech">PCILeech</a> support.</p>
 </li>
 <li>
 <p>Use Xilinx AXI DMA core for more fast data transfer between DDR3 memory of MicroBlaze and PCI-E hard IP block.</p>

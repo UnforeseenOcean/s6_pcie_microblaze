@@ -35,7 +35,7 @@ Ready to use FPGA bitstream files `s6_pcie_microblaze.mcs` and  `s6_pcie_microbl
 
 ## SP605 board configuration
 
-<img src="images/board.jpg" width="800" height="415">
+<img src="https://raw.githubusercontent.com/Cr4sh/s6_pcie_microblaze/master/docs/images/board.jpg" width="800" height="415">
 
 Xilinx UG526 document also known as [SP605 Hardware User Guide](https://www.xilinx.com/support/documentation/boards_and_kits/ug526.pdf) is your best friend if you want to know more details about usage and configuration of this nice board.
 
@@ -335,7 +335,7 @@ $ ./uefi_backdoor_simple.py payloads/DmaBackdoorSimple/DmaBackdoorSimple_X64.efi
 
 Example of debug messages on attack target screen:
 
-<img src="images/backdoor_simple.png" width="499" height="371">
+<img src="https://raw.githubusercontent.com/Cr4sh/s6_pcie_microblaze/master/docs/images/backdoor_simple.png" width="499" height="371">
 
 Example of `uefi_backdoor_simple.py` console output:
 
@@ -389,7 +389,7 @@ Hooking LocateProtocol(): 0x83209b88 -> 0x00010a30
 
 Example of Hyper-V debug messages on attack target screen during platform init:
 
-<img src="images/backdoor_hv.jpg" width="640" height="362">
+<img src="https://raw.githubusercontent.com/Cr4sh/s6_pcie_microblaze/master/docs/images/backdoor_hv.jpg" width="640" height="362">
 
 Client program `payloads/DmaBackdoorHv/backdoor_client.exe` is used to interact with the Hyper-V backdoor from the guest partition. Check if backdoor is loaded:
 
@@ -560,7 +560,7 @@ EPT PDPTE 0x145f9000[0x0]: 0x14612007
 
 Also, `backdoor_client.exe` can inject dummy driver located in `payloads/DmaBackdoorHv/backdoor_driver.sys` from guest Hyper-V partition to host Hyper-V partition:
 
-<img src="images/backdoor_vm_inject.png" width="749" height="498">
+<img src="https://raw.githubusercontent.com/Cr4sh/s6_pcie_microblaze/master/docs/images/backdoor_vm_inject.png" width="749" height="498">
 
 
 ## Troubleshooting
@@ -595,7 +595,7 @@ PCI Express is very complicated high speed bus so there's a lot of things that c
 
 ## TODO
 
-* Implement SP605 MicroBlaze based design support for [pcileech](https://github.com/ufrisk/pcileech).
+* [PCILeech](https://github.com/ufrisk/pcileech) support.
 
 * Use Xilinx AXI DMA core for more fast data transfer between DDR3 memory of MicroBlaze and PCI-E hard IP block.
 
